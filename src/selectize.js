@@ -429,6 +429,9 @@ $.extend(Selectize.prototype, {
 				}
 				break;
 			case KEY_ESC:
+				if(self.isOpen){
+					e.stopPropagation();
+				}
 				self.close();
 				return;
 			case KEY_N:
@@ -454,10 +457,14 @@ $.extend(Selectize.prototype, {
 				e.preventDefault();
 				return;
 			case KEY_RETURN:
+				console.log("KEY_RETURN isOpen: "+self.isOpen);
+				if(self.isOpen){
+					e.preventDefault();
+				}
+
 				if (self.isOpen && self.$activeOption) {
 					self.onOptionSelect({currentTarget: self.$activeOption});
 				}
-				e.preventDefault();
 				return;
 			case KEY_LEFT:
 				self.advanceSelection(-1, e);
