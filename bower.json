@@ -11,7 +11,7 @@
     "tag"
   ],
   "description": "Selectize is a jQuery-based custom <select> UI control. Useful for tagging, contact lists, country selectors, etc.",
-  "version": "0.11.2-hack.2",
+  "version": "0.11.3-hack",
   "license": "Apache License, Version 2.0",
   "readmeFilename": "README.md",
   "repository": {
