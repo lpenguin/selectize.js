@@ -863,16 +863,18 @@ $.extend(Selectize.prototype, {
 	 *
 	 * @param {boolean} trigger
 	 */
-	focus: function() {
+	focus: function(forceOpen) {
 		var self = this;
 		if (self.isDisabled) return;
 
 		self.ignoreFocus = true;
 		self.$control_input[0].focus();
-		window.setTimeout(function() {
-			self.ignoreFocus = false;
-			self.onFocus();
-		}, 0);
+		if(forceOpen){
+			window.setTimeout(function() {
+				self.ignoreFocus = false;
+				self.onFocus();
+			}, 0);
+		}
 	},
 
 	/**

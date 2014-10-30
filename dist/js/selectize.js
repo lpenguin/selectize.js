@@ -1,5 +1,5 @@
 /**
- * selectize.js (v0.11.2-hack)
+ * selectize.js (v0.11.3-hack)
  * Copyright (c) 2013 Brian Reavis & contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -1326,16 +1326,18 @@
 		 *
 		 * @param {boolean} trigger
 		 */
-		focus: function() {
+		focus: function(forceOpen) {
 			var self = this;
 			if (self.isDisabled) return;
 	
 			self.ignoreFocus = true;
 			self.$control_input[0].focus();
-			window.setTimeout(function() {
-				self.ignoreFocus = false;
-				self.onFocus();
-			}, 0);
+			if(forceOpen){
+				window.setTimeout(function() {
+					self.ignoreFocus = false;
+					self.onFocus();
+				}, 0);
+			}
 		},
 	
 		/**
