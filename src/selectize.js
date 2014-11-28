@@ -964,6 +964,10 @@ $.extend(Selectize.prototype, {
 			}
 		}
 
+		console.log(self.settings.onResult);
+		if(self.settings.onResult){
+			self.settings.onResult.apply(this, [result]);
+		}
 		return result;
 	},
 

@@ -1,5 +1,5 @@
 /**
- * selectize.js (v0.11.3-hack)
+ * selectize.js (v0.11.4-hack)
  * Copyright (c) 2013 Brian Reavis & contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
@@ -1427,6 +1427,10 @@
 				}
 			}
 	
+			console.log(self.settings.onResult);
+			if(self.settings.onResult){
+				self.settings.onResult.apply(this, [result]);
+			}
 			return result;
 		},
 	
@@ -1471,7 +1475,7 @@
 			for (i = 0; i < n; i++) {
 				option      = self.options[results.items[i].id];
 				option_html = self.render('option', option);
-				optgroup    = option[self.settings.optgroupField] || '';
+				optgroup    = option[self.settings.optgroupField] || results.items[i].optgroup || '';
 				optgroups   = $.isArray(optgroup) ? optgroup : [optgroup];
 	
 				for (j = 0, k = optgroups && optgroups.length; j < k; j++) {
@@ -2495,6 +2499,7 @@
 		onDropdownClose : null, // function($dropdown) { ... }
 		onType          : null, // function(str) { ... }
 		onDelete        : null, // function(values) { ... }
+		onResult				: null, // function(result) { ... }
 		*/
 	
 		render: {

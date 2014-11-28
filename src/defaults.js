@@ -57,6 +57,7 @@ Selectize.defaults = {
 	onDropdownClose : null, // function($dropdown) { ... }
 	onType          : null, // function(str) { ... }
 	onDelete        : null, // function(values) { ... }
+	onResult				: null, // function(result) { ... }
 	*/
 
 	render: {
