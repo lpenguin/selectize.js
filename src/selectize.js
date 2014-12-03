@@ -457,7 +457,6 @@ $.extend(Selectize.prototype, {
 				e.preventDefault();
 				return;
 			case KEY_RETURN:
-				console.log("KEY_RETURN isOpen: "+self.isOpen);
 				if(self.isOpen){
 					e.preventDefault();
 				}
